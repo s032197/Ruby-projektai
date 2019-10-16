@@ -1,27 +1,30 @@
-def self.trikapmio_pusperimetris ()
-puts "Ivesk krastiniu ilgius"
-a = gets.to_f
-b = gets.to_f
-c = gets.to_f
-p = (a+b+c)/2
-puts "Pusperimetris yra : #{p}"
+# frozen_string_literal: true
 
- if a<=0 || b<=0 || b<=0
-   puts "Negali buti neigiamu krastiniu"
-   else if a+b>c && b+c>a && a+c>b
-     puts "Trikampis egzistuoja"
-     plotas =Math.sqrt(p*(p-a)*(p-b)*(p-c))
-     puts "Trikampio plotas #{plotas}"
-     end
-     if a == b && b == c && c == a
-       puts "Trikampis lygiakrastis"
-       else if a==b || b==c || a==c
-         puts "Trikampis lygiasonis"
-        else if a!=b && b!=c && a!=c
-           puts "Trikampis ivairiakrastis"
-           end
-       end
-     end
- end
+puts 'Ivesk krastiniu ilgius'
+put1 = gets.to_f
+put2 = gets.to_f
+put3 = gets.to_f
+
+def trikapmio_perimetras(put1, put2, put3)
+  p = (put1 + put2 + put3) / 2
+  puts "Perimetras yra : #{p}"
+  if put1 <= 0 || put2 <= 0 || put2 <= 0
+    puts 'Negali buti neigiamu krastiniu'
+  elsif put1 + put2 > put3 && put2 + put3 > put1 && put1 + put3 > put2
+    puts 'Trikampis egzistuoja'
+    plotas = Math.sqrt(p * (p - put1) * (p - put2) * (p - put3))
+    puts "Trikampio plotas #{plotas}"
+  end
 end
-trikapmio_pusperimetris
+
+def trikampis(put1, put2, put3)
+  if put1 == put2 && put2 == put3 && put3 == put1
+    puts 'Trikampis lygiakrastis'
+  elsif put1 == put2 || put2 == put3 || put1 == put3
+    puts 'Trikampis lygiasonis'
+  elsif put1 != put2 && put2 != put3 && put1 != put3
+    puts 'Trikampis ivairiakrastis'
+  end
+end
+puts trikapmio_perimetras(put1, put2, put3).to_s
+puts trikampis(put1, put2, put3).to_s
